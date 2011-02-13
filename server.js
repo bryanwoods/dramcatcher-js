@@ -26,7 +26,13 @@ app.get('/', function(req, res) {
   });
 });
 
+// Should really be a POST but I must be missing something
+// About How Express grabs POST parameters
 app.get('/errors', function(req, res) {
+  console.log(req.query.error);
+
+  // The following doesn't actually work (and will error out). It's just
+  // a quick sketch and needs to be updated to work with Mongoose.
   var errorReport  = req.query.error;
   var report = mongoose.model('Report');
   var instance = new Report();
