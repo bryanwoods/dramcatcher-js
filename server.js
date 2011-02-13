@@ -33,16 +33,16 @@ app.get('/errors', function(req, res) {
 
   // The following doesn't actually work (and will error out). It's just
   // a quick sketch and needs to be updated to work with Mongoose.
-  var errorReport  = req.query.error;
-  var report = mongoose.model('Report');
-  var instance = new Report();
+  var errorReport = req.query.error;
+  var report      = mongoose.model('Report');
+  var instance    = new Report();
 
   var document = {
-    message: errorReport.message,
-    location: errorReport.location,
-    browser_name: errorReport.browser_name,
-    browser_version: errorReport.browser_version,
-    line_number: errorReport.line_number
+    message         : errorReport.message,
+    location        : errorReport.location,
+    browser_name    : errorReport.browser_name,
+    browser_version : errorReport.browser_version,
+    line_number     : errorReport.line_number
   };
 
   report.save(document);
